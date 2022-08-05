@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Nuosu+SIL&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto;
+    /* outline: solid red; */
+}
+
+:root {
+    background-color: #404040;
+}
+
+/* General Styles */
+button {
+    background-color: #a3a3a3;
+    color: white;
+    border: none;
+    padding: 10px;
+    min-width: 150px;
+    border-radius: 15px;
+    height: 35px;
+}
+
+.shadow {
+    box-shadow: 5px 10px 25px rgba(0, 0, 0, .5);
+}
+
+/* Layout */
+.container {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    background-color: #525252;
+}
+
+.header-item {
+    justify-self: center;
+    align-self: center;
+}
+
+.searchbar {
+    border-radius: 15px;
+    background-color: #fafafa;
+    border: none;
+    height: 25px;
+    min-width: none;
+    width: 80%;
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    resize: both;
+    overflow: auto;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 25px;
+}
+
+.card {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    height: 250px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+}
+
+.remove-btn {
+    align-self: end;
+    grid-column: 1 / -1;
+}
+
+.card-content {
+    justify-self: end;
+}
