@@ -1,4 +1,7 @@
-// You will need to associate your DOM elements with the actual book objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the library array.
+// I don't have brain power to add the toggle part now but do when you revisit!!!
+
+// Add a button on each book’s display to change its read status.
+// To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
 
 // Books stored in this array
 let myLibrary = [];
@@ -28,6 +31,7 @@ function addBookToLibrary() {
     let book = new Book(title, author, numPages, isRead);
 
     // Add book to array
+    console.log(book)
     myLibrary.push(book);
 
     // Remove form
@@ -64,8 +68,6 @@ function displayBooks() {
   });
 }
 
-// 
-
 // Adds a new book form and checks if there is already an active one
 let content = document.querySelector(".main-content");
 let bookForm = `<form class="book-input" id="book-input" action="#" method="#">
@@ -98,19 +100,3 @@ removeButtons.forEach((button) => {
     button.parentElement.remove();
   });
 });
-
-
-// // function that toggles a book’s read status on your Book prototype instance.
-// function toggleReadStatus() {
-//   let toggleCheck = document.querySelectorAll(".checkbox");
-
-//   toggleCheck.forEach((ch) => {
-//     ch.addEventListener("click", () => {
-//       if(ch.checked){
-//       }
-//       else{
-
-//       }
-//     })
-//   })
-// }
