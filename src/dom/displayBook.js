@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export default (book) => {
   const form = document.querySelector('.book-input');
 
