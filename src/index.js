@@ -30,5 +30,3 @@ form.addEventListener('submit', (e) => {
   const readBox = document.querySelector(`#${newBook.title}>input`);
   readBox.addEventListener('click', () => newBook.toggleRead());
 });
-
-// TODO fix the positioning of new cards

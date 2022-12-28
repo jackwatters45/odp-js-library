@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export default (book) => {
-  const newBookSection = document.querySelector('.new-books');
+  const form = document.querySelector('.book-input');
 
   const card = document.createElement('div');
   card.classList.add('card');
@@ -46,5 +46,5 @@ export default (book) => {
   removeButton.innerHTML = 'Remove Book';
   card.appendChild(removeButton);
 
-  newBookSection.appendChild(card);
+  form.parentNode.insertBefore(card, form);
 };
