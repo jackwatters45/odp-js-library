@@ -6,8 +6,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/templates/index.html',
-      title: 'Battleship',
+      template: './src/index.html',
+      title: 'Library',
     }),
   ],
   module: {

@@ -10,20 +10,20 @@ export default () => {
   form.appendChild(card);
 
   const title = document.createElement('input');
-  title.classList.add('title-input');
+  title.classList.add('title');
   title.placeholder = 'Title';
   title.required = 'true';
   title.type = 'text';
   card.appendChild(title);
 
   const author = document.createElement('input');
-  author.classList.add('author-input');
+  author.classList.add('author');
   author.placeholder = 'Author';
   author.type = 'text';
   card.appendChild(author);
 
   const pages = document.createElement('input');
-  pages.classList.add('pages-input');
+  pages.classList.add('pages');
   pages.placeholder = 'Num Pages';
   pages.type = 'number';
   card.appendChild(pages);
@@ -32,7 +32,7 @@ export default () => {
   readText.innerHTML = 'Have you read it?';
   readText.classList.add('read-text');
   const read = document.createElement('input');
-  read.classList.add('read-input');
+  read.classList.add('read');
   read.type = 'checkbox';
   read.name = 'read-input';
   card.appendChild(readText);
@@ -45,4 +45,6 @@ export default () => {
   card.appendChild(submit);
 
   mainContent.appendChild(form);
+
+  return form;
 };
