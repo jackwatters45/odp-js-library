@@ -1,13 +1,14 @@
-// add functionality for isRead
-// probably make the forms themselves an object at some point
+import './style.css';
+import Library from './classes/library';
+import Book from './classes/book';
 
 // Page Elements
-const newBooks = document.querySelector('.new-book-btn');
+const newBook = document.querySelector('.new-book-btn');
 const mainContent = document.querySelector('.main-content');
 
 // list of books
 
-myLibrary = new Library();
+const myLibrary = new Library();
 
 // creates book object adds to library and displays
 function addBook(form) {
@@ -28,9 +29,9 @@ function addBook(form) {
 }
 
 // add form to add a book to library and creates event listener to remove
-newBooks.addEventListener('click', () => {
+newBook.addEventListener('click', () => {
   if (!document.querySelector('.book-input')) {
-    mainContent.innerHTML += bookForm;
+    mainContent.innerHTML += 'bookForm';
 
     const form = document.forms['book-input'];
 
