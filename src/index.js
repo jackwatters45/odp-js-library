@@ -1,51 +1,34 @@
 import './style.css';
 import Library from './classes/library';
-import Book from './classes/book';
+import displayBook from './dom/displayBook';
+import createBook from './functions/createBook';
 
-// Page Elements
-const newBook = document.querySelector('.new-book-btn');
-const mainContent = document.querySelector('.main-content');
+const newBookBtn = document.querySelector('.new-book-btn');
+const form = document.querySelector('.book-input');
+const library = new Library();
 
-// list of books
-
-const myLibrary = new Library();
-
-// creates book object adds to library and displays
-function addBook(form) {
-  // Get form values
-  const title = form.querySelector('.title-data').value;
-  const author = form.querySelector('.author-data').value;
-  const numPages = form.querySelector('.num-pages-data').value;
-  const isRead = form.querySelector('.read-data').checked;
-
-  // Create book object
-  const book = new Book(title, author, numPages, isRead);
-
-  // Add book to array
-  myLibrary.addToLibrary(book);
-
-  // Display Books -
-  myLibrary.displayBooks(form);
-}
-
-// add form to add a book to library and creates event listener to remove
-newBook.addEventListener('click', () => {
-  if (!document.querySelector('.book-input')) {
-    mainContent.innerHTML += 'bookForm';
-
-    const form = document.forms['book-input'];
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      addBook(form);
-
-      const removeButtons = document.querySelectorAll('.remove-btn');
-
-      removeButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          myLibrary.removeBook(button, button.id);
-        });
-      });
-    });
+newBookBtn.addEventListener('click', () => {
+  if (form.classList.contains('hidden')) {
+    form.reset();
+    form.classList.remove('hidden');
   }
 });
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const newBook = createBook();
+  library.addBook(newBook);
+  displayBook(newBook);
+  form.classList.add('hidden');
+
+  const removeButton = document.querySelector(`#${newBook.title}>button`);
+  removeButton.addEventListener('click', () => {
+    library.removeBook(newBook.title);
+    removeButton.parentElement.remove();
+  });
+
+  const readBox = document.querySelector(`#${newBook.title}>input`);
+  readBox.addEventListener('click', () => newBook.toggleRead());
+});
+
+// TODO fix the positioning of new cards
